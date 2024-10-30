@@ -48,6 +48,28 @@ module BasicCrafting
         Time:60,
     }
 
+    recipe Make Bath Towel
+    {
+        keep Needle/FishBoneNeedle/SutureNeedle,
+        
+        Thread=2,
+        RippedSheets=4,
+        
+        Result:BathTowel,
+        Time:120,
+    }
+    
+    recipe Make Dish Towel
+    {
+        keep Needle/FishBoneNeedle/SutureNeedle,
+        
+        Thread=1,
+        RippedSheets=2,
+
+        Result:DishCloth,
+        Time:60,
+    }
+
     recipe Make Sack
     {
         keep Needle/FishBoneNeedle/SutureNeedle,
@@ -63,7 +85,7 @@ module BasicCrafting
 
     }
 
-    recipe Gather Thread
+    recipe Reclaim Thread
     {
         keep Scissors,
         keep Tweezers,
