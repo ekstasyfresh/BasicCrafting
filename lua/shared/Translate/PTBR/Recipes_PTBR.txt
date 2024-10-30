@@ -1,0 +1,7 @@
+Recipe_PTBR = {
+    Recipe_Make_Thread = "Produzir Linha",
+    Recipe_Make_Twine = "Produzir Barbante",
+    Recipe_Make_Rope = "Produzir Corda",
+    Recipe_Make_Sheet = "Costurar Lençol",
+    Recipe_Make_Chipped_Stone = "Lascar Pedra",
+}

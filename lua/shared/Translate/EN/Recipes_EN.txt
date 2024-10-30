@@ -1,0 +1,7 @@
+Recipe_EN = {
+    Recipe_Make_Thread = "Make Thread",
+    Recipe_Make_Twine = "Make Twine",
+    Recipe_Make_Rope = "Make Rope",
+    Recipe_Make_Sheet = "Make Sheet",
+    Recipe_Make_Chipped_Stone = "Make Chipped Stone",
+}

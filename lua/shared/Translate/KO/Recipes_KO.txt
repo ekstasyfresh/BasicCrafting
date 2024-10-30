@@ -1,0 +1,7 @@
+Recipe_KO = {
+    Recipe_Make_Thread = "실 만들기",
+    Recipe_Make_Twine = "노끈 만들기",
+    Recipe_Make_Rope = "밧줄 만들기",
+    Recipe_Make_Sheet = "천 만들기",
+    Recipe_Make_Chipped_Stone = "돌 조각 만들기",
+}

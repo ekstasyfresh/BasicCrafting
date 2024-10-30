@@ -1,0 +1,140 @@
+module BasicCrafting
+{
+    imports 
+    {
+        Base
+    }
+
+    /*** BasicCrafting New Items ***/
+
+    item FishBoneNeedle
+    {
+        DisplayCategory = Tool,
+        Weight = 0.1,
+        Type = Normal,
+        DisplayName = Fish Bone Needle,
+        Icon = Needle,
+        MetalValue = 0,
+        SurvivalGear = TRUE,
+        Medical = FALSE,
+        WorldStaticModel = Needle,
+        Tags = SewingNeedle,
+    }
+
+    /*** BasicCrafting Recipes ***/
+
+    recipe Make Fish Bone Needle
+    {
+        keep Tweezers,
+        keep KitchenKnife/HuntingKnife/Scalpel,
+
+        BaitFish,
+
+        Result:FishBoneNeedle,
+        Time:600.0,
+        Category:Survivalist,
+    }
+
+    recipe Make Mop
+    {
+        keep Scissors,
+        keep Needle/FishBoneNeedle/SutureNeedle,
+        
+        DuctTape=1,
+        RippedSheets=4,
+        WoodenStick=1,
+
+        Result:Mop,
+        Time:60,
+    }
+
+    recipe Make Sack
+    {
+        keep Needle/FishBoneNeedle/SutureNeedle,
+
+        Thread=4,
+        RippedSheets=12,
+
+        Result:EmptySandbag,
+        Time:240.0,
+        OnGiveXP:Give25TailoringXP,
+        SkillRequired:Tailoring=1,
+        Category:Survivalist,
+
+    }
+
+    recipe Gather Thread
+    {
+        keep Scissors,
+        keep Tweezers,
+
+        RippedSheets=8,
+
+        Result:Thread,
+        Time:300.0,
+        AnimNode:RipSheets,
+        OnGiveXP:Give1TailoringXP,
+        Category:Survivalist,
+    }
+
+    recipe Make Twine
+    {
+        Thread=40,
+
+        Result:Twine,
+        Time:120.0,
+        AnimNode:RipSheets,
+        OnGiveXP:Give2TailoringXP,
+        Category:Survivalist,
+    }
+
+    recipe Make Rope
+    {
+        Twine=50,
+
+        Result:Rope,
+        Time:120.0,
+        AnimNode:RipSheets,
+        OnGiveXP:Give10TailoringXP,
+        Category:Survivalist,
+    }
+
+    recipe Make Sheet 
+    {
+        keep Needle/FishBoneNeedle/SutureNeedle,
+        Thread=2,
+        RippedSheets=12,
+
+        Result:Sheet,
+        Time:240.0,
+        AnimNode:RipSheets,
+        OnGiveXP:Give25TailoringXP,
+        SkillRequired:Tailoring=1,
+        Category:Survivalist,
+    }
+
+    recipe Make Chipped Stone
+    {
+        keep HammerStone/Hammer/ClubHammer/BallPeenHammer/Axe/HandAxe/AxeStone/WoodAxe/PickAxe,
+        Stone,
+
+        Result:SharpedStone=2,
+        Time:120.0,
+        Sound:Hammering,
+        AnimNode:RipSheets,
+        OnCreate:AddChippedStoneTool_OnCreate,
+        Category:Survivalist,
+    }
+
+    recipe Make Chipped Stone
+    {
+        Stone=2,
+
+        Result:SharpedStone,
+        Time:240.0,
+        Sound:Hammering,
+        AnimNode:RipSheets,
+        OnCreate:AddChippedStone_OnCreate,
+        Category:Survivalist,
+    }
+}

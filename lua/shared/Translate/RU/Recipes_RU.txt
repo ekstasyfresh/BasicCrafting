@@ -1,0 +1,7 @@
+Recipe_RU = {
+    Recipe_Make_Thread = "Сделать Нитки",
+    Recipe_Make_Twine = "Сделать бечевку",
+    Recipe_Make_Rope = "Сделать веревку",
+    Recipe_Make_Sheet = "Сделать простыню",
+    Recipe_Make_Chipped_Stone = "Сделать острый камень",
+}

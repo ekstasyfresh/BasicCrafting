@@ -1,0 +1,7 @@
+Recipe_DE = {
+    Recipe_Make_Thread = "Nähfaden herstellen",
+    Recipe_Make_Twine = "Faden herstellen",
+    Recipe_Make_Rope = "Seil herstellen",
+    Recipe_Make_Sheet = "Laken herstellen",
+    Recipe_Make_Chipped_Stone = "scharfen Stein herstellen",
+}
