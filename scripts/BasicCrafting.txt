@@ -26,7 +26,7 @@ module BasicCrafting
     recipe Make Fish Bone Needle
     {
         keep Tweezers,
-        keep KitchenKnife/HuntingKnife/Scalpel,
+        keep [Recipe.GetItemTypes.SharpKnife]/Scalpel,
 
         BaitFish,
 
@@ -38,14 +38,25 @@ module BasicCrafting
     recipe Make Mop
     {
         keep Scissors,
-        keep Needle/FishBoneNeedle/SutureNeedle,
         
         DuctTape=1,
         RippedSheets=4,
-        WoodenStick=1,
+        Handle/WoodenStick,
 
         Result:Mop,
         Time:60,
+    }
+
+    recipe Make Mop
+    {
+        keep Scissors,
+
+        DuctTape=1,
+        DishCloth/BathTowel,
+        Handle/WoodenStick,
+
+        Result:Mop,
+        Time:40,
     }
 
     recipe Make Bath Towel
@@ -56,7 +67,10 @@ module BasicCrafting
         RippedSheets=4,
         
         Result:BathTowel,
+        OnGiveXP:Give2TailoringXP,
+        SkillRequired:Tailoring=1,
         Time:120,
+        Category:Tailoring,
     }
     
     recipe Make Dish Towel
@@ -67,7 +81,21 @@ module BasicCrafting
         RippedSheets=2,
 
         Result:DishCloth,
+        OnGiveXP:Give2TailoringXP,
+        SkillRequired:Tailoring=1,
         Time:60,
+        Category:Tailoring,
+    }
+
+    recipe Make Glue
+    {
+        Flour=1,
+        Water=2,
+        Salt=1,
+        WaterBottleEmpty/PopBottleEmpty,
+
+        Result:Glue,
+        Time:120,
     }
 
     recipe Make Sack
@@ -81,7 +109,7 @@ module BasicCrafting
         Time:240.0,
         OnGiveXP:Give25TailoringXP,
         SkillRequired:Tailoring=1,
-        Category:Survivalist,
+        Category:Tailoring,
 
     }
 
@@ -95,8 +123,7 @@ module BasicCrafting
         Result:Thread,
         Time:300.0,
         AnimNode:RipSheets,
-        OnGiveXP:Give1TailoringXP,
-        Category:Survivalist,
+        Category:Tailoring,
     }
 
     recipe Make Twine
@@ -107,7 +134,7 @@ module BasicCrafting
         Time:120.0,
         AnimNode:RipSheets,
         OnGiveXP:Give2TailoringXP,
-        Category:Survivalist,
+        Category:Tailoring,
     }
 
     recipe Make Rope
@@ -118,7 +145,7 @@ module BasicCrafting
         Time:120.0,
         AnimNode:RipSheets,
         OnGiveXP:Give10TailoringXP,
-        Category:Survivalist,
+        Category:Tailoring,
     }
 
     recipe Make Sheet 
@@ -132,7 +159,7 @@ module BasicCrafting
         AnimNode:RipSheets,
         OnGiveXP:Give25TailoringXP,
         SkillRequired:Tailoring=1,
-        Category:Survivalist,
+        Category:Tailoring,
     }
 
     recipe Make Chipped Stone
