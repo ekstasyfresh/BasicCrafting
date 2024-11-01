@@ -19,6 +19,21 @@ function Give25TailoringXP(recipe, ingredients, result, player)
     player:getXp():AddXP(Perks.Tailoring, 25);
 end
 
+-- Reclaim Thread logic
+-- Chances to get more thread goes up with Tailoring Level
+function ReclaimThread_OnCreate(items, result, player, selectedItem)
+    local tailoringLevel = player:getPerkLevel(Perks.Tailoring);
+    local useLevel = tailoringLevel + ZombRand(0, 3);
+
+    if useLevel > 10 then
+        useLevel = 10;
+    end
+
+    for i = useLevel + 1, 9 do
+            result:Use();
+    end
+end
+
 -- Chipped Stone Logic
 function AddChippedStone_OnCreate(items, result, player, selectedItem)
     -- chance to "fail" to gather resource
@@ -28,6 +43,7 @@ function AddChippedStone_OnCreate(items, result, player, selectedItem)
     end
 end
 
+-- Using tools for a bonus chance for chipped stone
 function AddChippedStoneTool_OnCreate(items, result, player, selectedItem)
     -- chance to damage tool
     if (ZombRand(0, 100) > 35) then

@@ -124,6 +124,7 @@ module BasicCrafting
         Time:300.0,
         AnimNode:RipSheets,
         Category:Tailoring,
+        OnCreate:ReclaimThread_OnCreate,
     }
 
     recipe Make Twine
