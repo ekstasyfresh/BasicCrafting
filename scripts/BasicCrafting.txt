@@ -172,6 +172,8 @@ module BasicCrafting
         Time:120.0,
         Sound:Hammering,
         AnimNode:RipSheets,
+        Prop1:Source = 1,
+        Prop2:Source = 2,
         OnCreate:AddChippedStoneTool_OnCreate,
         Category:Survivalist,
     }
