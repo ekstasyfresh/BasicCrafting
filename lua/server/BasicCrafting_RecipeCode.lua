@@ -19,15 +19,15 @@ function Give25TailoringXP(recipe, ingredients, result, player)
     player:getXp():AddXP(Perks.Tailoring, 25);
 end
 
--- Reclaim Thread logic
--- Chances to get more thread goes up with Tailoring Level
+-- Reclaim Thread Logic
+-- -----------------------------------
+-- [ ] TODO: Is it possible to just set the amount of uses left rather than "using"
+--       to the desired value?
+     
 function ReclaimThread_OnCreate(items, result, player, selectedItem)
     local tailoringLevel = player:getPerkLevel(Perks.Tailoring);
-    local useLevel = tailoringLevel + ZombRand(0, 3);
 
-    if useLevel > 10 then
-        useLevel = 10;
-    end
+    local useLevel = math.min(tailoringLevel + ZombRand(0, 3), 10);
 
     for i = useLevel + 1, 9 do
             result:Use();
@@ -35,15 +35,31 @@ function ReclaimThread_OnCreate(items, result, player, selectedItem)
 end
 
 -- Chipped Stone Logic
+-- [x] TODO: I want to make this chance based on a skill, but uncertain which skill
+--       to base it on. Foraging?
+
 function AddChippedStone_OnCreate(items, result, player, selectedItem)
-    -- chance to "fail" to gather resource
-    if (ZombRand(0, 100) > 15) and (player:getInventory():contains("SharpedStone")) then
-        local item = player:getInventory():getItemFromType("SharpedStone");
-        player:getInventory():Remove(item);
+    local foragingLevel = player:getPerkLevel(Perks.Foraging);
+    local successLevel = ZombRand(foragingLevel * 10, 100);
+
+    -- success
+    if (successLevel > 50) and (player:getInventory():contains("SharpedStone")) then
+        player:getXp():AddXP(Perks.Foraging, 3);
+
+        return;
     end
+
+    -- failure
+    local item = player:getInventory():getItemFromType("SharpedStone");
+    player:getInventory():Remove(item);
+    player:getXp():AddXP(Perks.Foraging, 1);
 end
 
--- Using tools for a bonus chance for chipped stone
+-- Chipped Stone Logic Using Tools
+-- ----------------------------------
+-- [ ] TODO: Make it check for selectedItem as well. Currently, it will select the first
+--       item it finds. Also, clean this code up in the process.
+
 function AddChippedStoneTool_OnCreate(items, result, player, selectedItem)
     -- chance to damage tool
     if (ZombRand(0, 100) > 35) then
