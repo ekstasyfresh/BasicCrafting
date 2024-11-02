@@ -23,7 +23,7 @@ end
 -- -----------------------------------
 -- [ ] TODO: Is it possible to just set the amount of uses left rather than "using"
 --           to the desired value? This would be better for performance, but I'm sure
---           a small for loop like this won't hurt anything.
+--           a small for loop like this won't hurt anything, though.
      
 function ReclaimThread_OnCreate(items, result, player, selectedItem)
     local tailoringLevel = player:getPerkLevel(Perks.Tailoring);
@@ -62,56 +62,63 @@ end
 
 -- Chipped Stone Logic Using Tools
 -- ----------------------------------
--- [ ] TODO: Make it check for selectedItem as well. Currently, it will select the first
---           item it finds even if you selected a specific tool. Also, clean this code up 
---           in the process.
 
 function AddChippedStoneTool_OnCreate(items, result, player, selectedItem)
-    -- chance to damage tool
-    if (ZombRand(0, 100) > 35) then
+    -- define tool handling functions
+    local function applyConditionChange(tool, minDamage, maxDamage)
+        local damageAmount = ZombRand(minDamage, maxDamage + 1)
+        tool:setCondition(tool:getCondition() - damageAmount)
+    end
+
+    local function attemptResourceRemoval(chance, itemType)
+        if ZombRand(0, 100) > chance and player:getInventory():contains(itemType) then
+            local item = player:getInventory():getItemFromType(itemType)
+            player:getInventory():Remove(item)
+        end
+    end
+
+    -- function to handle tool logic for each item
+    local function processTool(tool)
+        if not instanceof(tool, "HandWeapon") then return false end
+        
+        local toolType = tool:getType()
+        local toolCategories = tool:getCategories()
+
+        -- handle smallblunt tools (HammerStone)
+        if toolCategories:contains("SmallBlunt") then
+            if toolType == "HammerStone" then
+                applyConditionChange(tool, 2, 6)
+            else
+                applyConditionChange(tool, 1, 1)
+            end
+            attemptResourceRemoval(25, "SharpedStone")
+            return true
+        end
+
+        -- handle axe tools
+        if toolCategories:contains("Axe") then
+            if toolType == "StoneAxe" then
+                applyConditionChange(tool, 4, 8)
+            elseif toolType == "PickAxe" then
+                -- pickaxe has a smaller chance to lose condition
+                if ZombRand(0, 100) > 80 then
+                    applyConditionChange(tool, 1, 1)
+                end
+                return true  -- Pickaxe always succeeds, no resource removal
+            else
+                applyConditionChange(tool, 2, 2)
+            end
+            attemptResourceRemoval(45, "SharpedStone")
+            return true
+        end
+        return false
+    end
+
+    -- Main logic: attempt to process selected item, then fallback to other items
+    if ZombRand(0, 100) > 35 then
+        if selectedItem and processTool(selectedItem) then return end
         for i = 0, items:size() - 1 do
-            local curItem = items:get(i);
-
-            -- hammer
-            if instanceof(items:get(i), "HandWeapon") and items:get(i):getCategories():contains("SmallBlunt") then
-                if (items:get(i):getType() == "HammerStone") then
-                    items:get(i):setCondition(items:get(i):getCondition() - ZombRand(2, 6));
-                else
-                    items:get(i):setCondition(items:get(i):getCondition() - 1);
-                end
-
-                -- chance to "fail" to gather an extra resource
-                if (ZombRand(0, 100) > 25) and (player:getInventory():contains("SharpedStone")) then
-                    local item = player:getInventory():getItemFromType("SharpedStone");
-                    player:getInventory():Remove(item);
-                end
-
-                break;
-            end
-
-            -- axe
-            if instanceof(items:get(i), "HandWeapon") and items:get(i):getCategories():contains("Axe") then
-                if (items:get(i):getType() == "StoneAxe") then
-                    items:get(i):setCondition(items:get(i):getCondition() - ZombRand(4, 8));
-                elseif (curItem:getType() == "PickAxe") then
-                    if ZombRand(0, 100) > 80 then
-                        curItem:setCondition(curItem:getCondition() - 1);
-                    end
-                else
-                    items:get(i):setCondition(items:get(i):getCondition() - 2);
-                end
-
-                -- always get bonus resource with pickaxe
-                if (curItem:getType() == "PickAxe") then break; end
-
-                -- chance to "fail" to gather an extra resource
-                if (ZombRand(0, 100) > 45) and (player:getInventory():contains("SharpedStone")) then
-                    local item = player:getInventory():getItemFromType("SharpedStone");
-                    player:getInventory():Remove(item);
-                end
-
-                break;
-            end
+            if processTool(items:get(i)) then break end
         end
     end
 end
