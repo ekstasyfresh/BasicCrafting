@@ -1,0 +1,7 @@
+Recipe_PL = {
+    Recipe_Reclaim_Thread = "Stwórz Nić",
+    Recipe_Make_Twine = "Stwórz Dratwę",
+    Recipe_Make_Rope = "Stwórz Linę",
+    Recipe_Make_Sheet = "Stwórz Prześcieradło",
+    Recipe_Make_Chipped_Stone = "Stwórz Rozdrobniony Kamień",
+}

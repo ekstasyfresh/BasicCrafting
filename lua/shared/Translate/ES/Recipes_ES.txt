@@ -1,0 +1,7 @@
+Recipe_ES = {
+    Recipe_Reclaim_Thread = "Hacer Hilo",
+    Recipe_Make_Twine = "Hacer Cordel",
+    Recipe_Make_Rope = "Hacer Cuerda",
+    Recipe_Make_Sheet = "Hacer Sábana",
+    Recipe_Make_Chipped_Stone = "Hacer Piedra Afilada",
+}

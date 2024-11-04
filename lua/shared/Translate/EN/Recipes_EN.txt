@@ -1,5 +1,5 @@
 Recipe_EN = {
-    Recipe_Reclaim_Thread = "Make Thread",
+    Recipe_Reclaim_Thread = "Reclaim Thread",
     Recipe_Make_Twine = "Make Twine",
     Recipe_Make_Rope = "Make Rope",
     Recipe_Make_Sheet = "Make Sheet",

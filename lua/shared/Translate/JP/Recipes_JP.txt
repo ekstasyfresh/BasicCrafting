@@ -1,0 +1,7 @@
+Recipe_JP = {
+    Recipe_Reclaim_Thread = "手縫い糸を作る",
+    Recipe_Make_Twine = "より糸を作る",
+    Recipe_Make_Rope = "ロープを作る",
+    Recipe_Make_Sheet = "布シートを作る",
+    Recipe_Make_Chipped_Stone = "欠けた石を作る",
+}
