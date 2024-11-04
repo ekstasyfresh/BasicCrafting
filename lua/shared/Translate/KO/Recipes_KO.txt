@@ -1,7 +1,7 @@
 Recipe_KO = {
-    Recipe_Make_Thread = "ì‹¤ ë§Œë“¤ê¸°",
-    Recipe_Make_Twine = "ë…¸ëˆ ë§Œë“¤ê¸°",
-    Recipe_Make_Rope = "ë°§ì¤„ ë§Œë“¤ê¸°",
-    Recipe_Make_Sheet = "ì²œ ë§Œë“¤ê¸°",
-    Recipe_Make_Chipped_Stone = "ëŒ ì¡°ê° ë§Œë“¤ê¸°",
+    Recipe_Reclaim_Thread = "½Ç ¸¸µé±â",
+    Recipe_Make_Twine = "³ë²ö ¸¸µé±â",
+    Recipe_Make_Rope = "¹åÁÙ ¸¸µé±â",
+    Recipe_Make_Sheet = "Ãµ ¸¸µé±â",
+    Recipe_Make_Chipped_Stone = "µ¹ Á¶°¢ ¸¸µé±â",
 }

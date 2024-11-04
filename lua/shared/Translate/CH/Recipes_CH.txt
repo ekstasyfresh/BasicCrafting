@@ -1,0 +1,7 @@
+Recipe_CH = {
+    Recipe_Reclaim_Thread = "製作手縫線",
+    Recipe_Make_Twine = "製作捆繩",
+    Recipe_Make_Rope = "製作繩子",
+    Recipe_Make_Sheet = "製作床單",
+    Recipe_Make_Chipped_Stone = "製作尖碎石",
+}

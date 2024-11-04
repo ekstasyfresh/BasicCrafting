@@ -1,0 +1,7 @@
+Recipe_ITA= {
+    Recipe_Reclaim_Thread = "Crea Filo",
+    Recipe_Make_Twine = "Crea Spago",
+    Recipe_Make_Rope = "Crea Fune",
+    Recipe_Make_Sheet = "Crea Lenzuolo",
+    Recipe_Make_Chipped_Stone = "Crea Pietra Affilata",
+}

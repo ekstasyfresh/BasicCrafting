@@ -1,7 +1,7 @@
 Recipe_RU = {
-    Recipe_Make_Thread = "п║п╢п╣п╩п╟я┌я▄ п²п╦я┌п╨п╦",
-    Recipe_Make_Twine = "п║п╢п╣п╩п╟я┌я▄ п╠п╣я┤п╣п╡п╨я┐",
-    Recipe_Make_Rope = "п║п╢п╣п╩п╟я┌я▄ п╡п╣я─п╣п╡п╨я┐",
-    Recipe_Make_Sheet = "п║п╢п╣п╩п╟я┌я▄ п©я─п╬я│я┌я▀п╫я▌",
-    Recipe_Make_Chipped_Stone = "п║п╢п╣п╩п╟я┌я▄ п╬я│я┌я─я▀п╧ п╨п╟п╪п╣п╫я▄",
+    Recipe_Reclaim_Thread = "Сделать Нитки",
+    Recipe_Make_Twine = "Сделать бечевку",
+    Recipe_Make_Rope = "Сделать веревку",
+    Recipe_Make_Sheet = "Сделать простыню",
+    Recipe_Make_Chipped_Stone = "Сделать острый камень",
 }
