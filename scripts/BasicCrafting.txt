@@ -111,7 +111,6 @@ module BasicCrafting
         WaterBottleEmpty/PopBottleEmpty,
 
         Result:Glue,
-        Prop2:Glue,
         Time:120,
     }
 
@@ -180,6 +179,15 @@ module BasicCrafting
         OnGiveXP:Give25TailoringXP,
         SkillRequired:Tailoring=1,
         Category:Tailoring,
+    }
+
+    recipe Tie Ripped Sheets
+    {
+        RippedSheets=2,
+
+        Result:SheetRope,
+        Time:60,
+        Category:Survivalist,
     }
 
     recipe Make Chipped Stone

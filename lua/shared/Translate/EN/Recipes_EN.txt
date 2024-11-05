@@ -4,4 +4,11 @@ Recipe_EN = {
     Recipe_Make_Rope = "Make Rope",
     Recipe_Make_Sheet = "Make Sheet",
     Recipe_Make_Chipped_Stone = "Make Chipped Stone",
+    Recipe_Make_Fish_Bone_Needle = "Make Fish Bone Needle",
+    Recipe_Make_Mop = "Make Mop",
+    Recipe_Make_Bath_Towel = "Make Bath Towel",
+    Recipe_Make_Dish_Towel = "Make Dish Towel",
+    Recipe_Make_Pillow = "Make Pillow",
+    Recipe_Make_Glue = "Make Glue",
+    Recipe_Make_Sack = "Make Sack",
 }
