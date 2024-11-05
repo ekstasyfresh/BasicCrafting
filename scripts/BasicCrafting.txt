@@ -87,6 +87,22 @@ module BasicCrafting
         Category:Tailoring,
     }
 
+    recipe Make Pillow
+    {
+        keep Needle/FishBoneNeedle/SutureNeedle,
+
+        Thread=2,
+        RippedSheets=8,
+
+        Result:Pillow,
+        OnGiveXP:Give2TailoringXP,
+        SkillRequired:Tailoring=1,
+        Time:120,
+        Prop1:Needle,
+        Prop2:Pillow,
+        Category:Tailoring,
+    }
+
     recipe Make Glue
     {
         Flour=1,
@@ -95,6 +111,7 @@ module BasicCrafting
         WaterBottleEmpty/PopBottleEmpty,
 
         Result:Glue,
+        Prop2:Glue,
         Time:120,
     }
 
@@ -109,6 +126,8 @@ module BasicCrafting
         Time:240.0,
         OnGiveXP:Give25TailoringXP,
         SkillRequired:Tailoring=1,
+        Prop1:Needle,
+        Prop2:EmptySandbag,
         Category:Tailoring,
 
     }
@@ -172,8 +191,8 @@ module BasicCrafting
         Time:120.0,
         Sound:Hammering,
         AnimNode:RipSheets,
-        Prop1:Source = 1,
-        Prop2:Source = 2,
+        Prop1:Source=1,
+        Prop2:Source=2,
         OnCreate:AddChippedStoneTool_OnCreate,
         Category:Survivalist,
     }
